@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Deepak singh",
+    "id": 1,
+    "specialization": "Dentist",
+    "availability": "9am"
+  },
+  {
+    "name": "Anoop singh",
+    "id": 2,
+    "specialization": "Skin",
+    "availability": "9am"
+  },
+  {
+    "name": "Devki gupta",
+    "id": 3,
+    "specialization": "Surgeon",
+    "availability": "9am"
+  },
+  {
+    "name": "Kishan pandey",
+    "id": 4,
+    "specialization": "Orthopaedics",
+    "availability": "9am"
+  },
+  {
+    "name": "Himanshu singh",
+    "id": 5,
+    "specialization": "Dermatology",
+    "availability": "9am"
+  }
+]
