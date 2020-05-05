@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Amar khan",
+    "id": 1,
+    "mobileNumbre": 9897636572,
+    "age": 27
+  },
+  {
+    "name": "Ali khan",
+    "id": 2,
+    "mobileNumbre": 9978987631,
+    "age": 22
+  },
+  {
+    "name": "Shahil khan",
+    "id": 3,
+    "mobileNumbre": 7897635382,
+    "age": 23
+  },
+  {
+    "name": "Danish khan",
+    "id": 4,
+    "mobileNumbre": 8947038738,
+    "age": 25
+  },
+  {
+    "name": "Abhi singh",
+    "id": 5,
+    "mobileNumbre": 7004342412,
+    "age": 23
+  }
+]
