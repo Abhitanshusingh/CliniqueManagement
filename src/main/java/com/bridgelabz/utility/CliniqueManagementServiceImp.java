@@ -1,5 +1,6 @@
 package com.bridgelabz.utility;
 
+import com.bridgelabz.model.Doctor;
 import com.bridgelabz.service.ICliniqueManagementService;
 
 import java.io.IOException;
@@ -20,4 +21,18 @@ public class CliniqueManagementServiceImp implements ICliniqueManagementService 
         }
     }
 
+    @Override
+    public boolean searchDoctorByName(String doctorName, String filePath) {
+        try {
+            ArrayList<Doctor> readData = fileSystem.readDoctorFile(filePath);
+            for (Doctor doctorsData : readData) {
+                if (doctorsData.getName().contains(doctorName)) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
