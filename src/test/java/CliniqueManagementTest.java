@@ -32,10 +32,10 @@ public class CliniqueManagementTest {
     public void givenFile_whenAddDoctorDelail_shouldReturnTrue() {
         try {
             Doctor doctor1 = new Doctor("Deepak singh", 1, "Dentist", "9am");
-            Doctor doctor2 = new Doctor("Anoop singh", 2, "Skin", "9am");
-            Doctor doctor3 = new Doctor("Devki gupta", 3, "Corona", "9am");
-            Doctor doctor4 = new Doctor("Kishan pandey", 4, "Orthopaedics", "9am");
-            Doctor doctor5 = new Doctor("Himanshu singh", 5, "Dermatology", "9am");
+            Doctor doctor2 = new Doctor("Anoop singh", 2, "Skin", "12am");
+            Doctor doctor3 = new Doctor("Devki gupta", 3, "Corona", "3pm");
+            Doctor doctor4 = new Doctor("Kishan pandey", 4, "Orthopaedics", "6pm");
+            Doctor doctor5 = new Doctor("Himanshu singh", 5, "Dermatology", "9pm");
 
             cliniqueManagementServiceImp.addInformation(doctor1, doctorfilePath);
             cliniqueManagementServiceImp.addInformation(doctor2, doctorfilePath);
@@ -45,11 +45,11 @@ public class CliniqueManagementTest {
             ArrayList<Doctor> data = objectMapper
                     .readValue(new File(doctorfilePath), new TypeReference<ArrayList<Doctor>>() {
                     });
-            Assert.assertEquals(doctor1.getName(), data.get(1).getName());
-            Assert.assertEquals(doctor2.getName(), data.get(2).getName());
-            Assert.assertEquals(doctor3.getName(), data.get(3).getName());
-            Assert.assertEquals(doctor4.getName(), data.get(4).getName());
-            Assert.assertEquals(doctor5.getName(), data.get(5).getName());
+            Assert.assertEquals(doctor1.getName(), data.get(0).getName());
+            Assert.assertEquals(doctor2.getName(), data.get(1).getName());
+            Assert.assertEquals(doctor3.getName(), data.get(2).getName());
+            Assert.assertEquals(doctor4.getName(), data.get(3).getName());
+            Assert.assertEquals(doctor5.getName(), data.get(4).getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -69,16 +69,23 @@ public class CliniqueManagementTest {
             cliniqueManagementServiceImp.addInformation(patients4, patientfilePath);
             cliniqueManagementServiceImp.addInformation(patients5, patientfilePath);
 
-            ArrayList<Doctor> data = objectMapper
-                    .readValue(new File(patientfilePath), new TypeReference<ArrayList<Doctor>>() {
+            ArrayList<Patients> data = objectMapper
+                    .readValue(new File(patientfilePath), new TypeReference<ArrayList<Patients>>() {
                     });
-            Assert.assertEquals(patients1.getName(), data.get(0).getName());
-            Assert.assertEquals(patients2.getName(), data.get(1).getName());
-            Assert.assertEquals(patients3.getName(), data.get(2).getName());
-            Assert.assertEquals(patients4.getName(), data.get(3).getName());
-            Assert.assertEquals(patients5.getName(), data.get(4).getName());
+            Assert.assertEquals(patients1.getName(), data.get(1).getName());
+            Assert.assertEquals(patients2.getName(), data.get(2).getName());
+            Assert.assertEquals(patients3.getName(), data.get(3).getName());
+            Assert.assertEquals(patients4.getName(), data.get(4).getName());
+            Assert.assertEquals(patients5.getName(), data.get(5).getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void givenFile_whenSearchDoctor_shouldReturnTrue() {
+        String doctorName = "Anoop singh";
+        boolean isDoctor = cliniqueManagementServiceImp.searchDoctorByName(doctorName, doctorfilePath);
+        Assert.assertTrue(isDoctor);
     }
 }
