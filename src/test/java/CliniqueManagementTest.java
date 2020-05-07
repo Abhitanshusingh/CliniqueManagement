@@ -85,14 +85,22 @@ public class CliniqueManagementTest {
     @Test
     public void givenFile_whenSearchDoctorByName_shouldReturnTrue() {
         String doctorName = "Anoop singh";
-        boolean isDoctor = cliniqueManagementServiceImp.searchDoctorByName(doctorName, doctorfilePath);
-        Assert.assertTrue(isDoctor);
+        boolean isDoctorName = cliniqueManagementServiceImp.searchDoctorByName(doctorName, doctorfilePath);
+        Assert.assertTrue(isDoctorName);
     }
 
     @Test
     public void givenFile_whenSearchDoctorById_shouldReturnTrue() {
         int doctorId = 5321;
-        boolean isDoctor = cliniqueManagementServiceImp.searchDoctorById(doctorId, doctorfilePath);
-        Assert.assertTrue(isDoctor);
+        boolean isDoctorId = cliniqueManagementServiceImp.searchDoctorById(doctorId, doctorfilePath);
+        Assert.assertTrue(isDoctorId);
+    }
+
+    @Test
+    public void givenFile_whenSearchDoctorBySpecialization_shouldReturnTrue() {
+        String doctorSpecialist = "Corona";
+        boolean isDoctorSpecialist = cliniqueManagementServiceImp
+                .searchDoctorBySpecialization(doctorSpecialist, doctorfilePath);
+        Assert.assertTrue(isDoctorSpecialist);
     }
 }
