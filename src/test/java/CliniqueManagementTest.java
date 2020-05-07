@@ -31,11 +31,11 @@ public class CliniqueManagementTest {
     @Test
     public void givenFile_whenAddDoctorDelail_shouldReturnTrue() {
         try {
-            Doctor doctor1 = new Doctor("Deepak singh", 1, "Dentist", "9am");
-            Doctor doctor2 = new Doctor("Anoop singh", 2, "Skin", "12am");
-            Doctor doctor3 = new Doctor("Devki gupta", 3, "Corona", "3pm");
-            Doctor doctor4 = new Doctor("Kishan pandey", 4, "Orthopaedics", "6pm");
-            Doctor doctor5 = new Doctor("Himanshu singh", 5, "Dermatology", "9pm");
+            Doctor doctor1 = new Doctor("Deepak singh", 3421, "Dentist", "9am");
+            Doctor doctor2 = new Doctor("Anoop singh", 4321, "Skin", "12am");
+            Doctor doctor3 = new Doctor("Devki gupta", 3241, "Corona", "3pm");
+            Doctor doctor4 = new Doctor("Kishan pandey", 4342, "Orthopaedics", "6pm");
+            Doctor doctor5 = new Doctor("Himanshu singh", 5321, "Dermatology", "9pm");
 
             cliniqueManagementServiceImp.addInformation(doctor1, doctorfilePath);
             cliniqueManagementServiceImp.addInformation(doctor2, doctorfilePath);
@@ -83,9 +83,16 @@ public class CliniqueManagementTest {
     }
 
     @Test
-    public void givenFile_whenSearchDoctor_shouldReturnTrue() {
+    public void givenFile_whenSearchDoctorByName_shouldReturnTrue() {
         String doctorName = "Anoop singh";
         boolean isDoctor = cliniqueManagementServiceImp.searchDoctorByName(doctorName, doctorfilePath);
+        Assert.assertTrue(isDoctor);
+    }
+
+    @Test
+    public void givenFile_whenSearchDoctorById_shouldReturnTrue() {
+        int doctorId = 5321;
+        boolean isDoctor = cliniqueManagementServiceImp.searchDoctorById(doctorId, doctorfilePath);
         Assert.assertTrue(isDoctor);
     }
 }
