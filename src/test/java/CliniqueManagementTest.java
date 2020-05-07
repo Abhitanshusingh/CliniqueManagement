@@ -103,4 +103,12 @@ public class CliniqueManagementTest {
                 .searchDoctorBySpecialization(doctorSpecialist, doctorfilePath);
         Assert.assertTrue(isDoctorSpecialist);
     }
+
+    @Test
+    public void givenFile_whenSearchDoctorByAvailability_shouldReturnTrue() {
+        String doctorAvailability = "6pm";
+        boolean isDoctorAvailability = cliniqueManagementServiceImp
+                .searchDoctorByAvailability(doctorAvailability, doctorfilePath);
+        Assert.assertTrue(isDoctorAvailability);
+    }
 }
