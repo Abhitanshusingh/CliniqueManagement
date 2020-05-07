@@ -95,4 +95,18 @@ public class CliniqueManagementServiceImp implements ICliniqueManagementService 
         }
         return false;
     }
+
+    public boolean searchPatientByMobileNumber(long mobileNumber, String patientfilePath) {
+        try {
+            ArrayList<Patient> readData = fileSystem.readPatientFile(patientfilePath);
+            for (Patient patientData : readData) {
+                if (patientData.getMobileNumbre() == mobileNumber) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
