@@ -1,5 +1,5 @@
 import com.bridgelabz.model.Doctor;
-import com.bridgelabz.model.Patients;
+import com.bridgelabz.model.Patient;
 import com.bridgelabz.utility.CliniqueManagementServiceImp;
 import com.bridgelabz.utility.FileSystem;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -58,25 +58,25 @@ public class CliniqueManagementTest {
     @Test
     public void givenFile_whenAddPatientDelail_shouldReturnTrue() {
         try {
-            Patients patients1 = new Patients("Amar khan", 1, 9897636572L, 27);
-            Patients patients2 = new Patients("Ali khan", 2, 9978987631L, 22);
-            Patients patients3 = new Patients("Shahil khan", 3, 7897635382L, 23);
-            Patients patients4 = new Patients("Danish khan", 4, 8947038738L, 25);
-            Patients patients5 = new Patients("Abhi singh", 5, 7004342412L, 23);
-            cliniqueManagementServiceImp.addInformation(patients1, patientfilePath);
-            cliniqueManagementServiceImp.addInformation(patients2, patientfilePath);
-            cliniqueManagementServiceImp.addInformation(patients3, patientfilePath);
-            cliniqueManagementServiceImp.addInformation(patients4, patientfilePath);
-            cliniqueManagementServiceImp.addInformation(patients5, patientfilePath);
+            Patient patient1 = new Patient("Amar khan", 1, 9897636572L, 27);
+            Patient patient2 = new Patient("Ali khan", 2, 9978987631L, 22);
+            Patient patient3 = new Patient("Shahil khan", 3, 7897635382L, 23);
+            Patient patient4 = new Patient("Danish khan", 4, 8947038738L, 25);
+            Patient patient5 = new Patient("Abhi singh", 5, 7004342412L, 23);
+            cliniqueManagementServiceImp.addInformation(patient1, patientfilePath);
+            cliniqueManagementServiceImp.addInformation(patient2, patientfilePath);
+            cliniqueManagementServiceImp.addInformation(patient3, patientfilePath);
+            cliniqueManagementServiceImp.addInformation(patient4, patientfilePath);
+            cliniqueManagementServiceImp.addInformation(patient5, patientfilePath);
 
-            ArrayList<Patients> data = objectMapper
-                    .readValue(new File(patientfilePath), new TypeReference<ArrayList<Patients>>() {
+            ArrayList<Patient> data = objectMapper
+                    .readValue(new File(patientfilePath), new TypeReference<ArrayList<Patient>>() {
                     });
-            Assert.assertEquals(patients1.getName(), data.get(1).getName());
-            Assert.assertEquals(patients2.getName(), data.get(2).getName());
-            Assert.assertEquals(patients3.getName(), data.get(3).getName());
-            Assert.assertEquals(patients4.getName(), data.get(4).getName());
-            Assert.assertEquals(patients5.getName(), data.get(5).getName());
+            Assert.assertEquals(patient1.getName(), data.get(0).getName());
+            Assert.assertEquals(patient2.getName(), data.get(1).getName());
+            Assert.assertEquals(patient3.getName(), data.get(2).getName());
+            Assert.assertEquals(patient4.getName(), data.get(3).getName());
+            Assert.assertEquals(patient5.getName(), data.get(4).getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,5 +110,12 @@ public class CliniqueManagementTest {
         boolean isDoctorAvailability = cliniqueManagementServiceImp
                 .searchDoctorByAvailability(doctorAvailability, doctorfilePath);
         Assert.assertTrue(isDoctorAvailability);
+    }
+
+    @Test
+    public void givenFile_whenSearchPatientByName_shouldReturnTrue() {
+        String patientName = "Ali khan";
+        boolean isPatientName = cliniqueManagementServiceImp.searchPatientByName(patientName, patientfilePath);
+        Assert.assertTrue(isPatientName);
     }
 }
