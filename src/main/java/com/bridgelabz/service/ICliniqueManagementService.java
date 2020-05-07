@@ -29,4 +29,11 @@ public interface ICliniqueManagementService {
      * This method is used to search doctor
      * by specialist from json file.
      */
+
+    public boolean searchDoctorByAvailability(String doctorAvailability, String doctorfilePath);
+
+    /**
+     * This method is used to search doctor
+     * by availability from json file.
+     */
 }
