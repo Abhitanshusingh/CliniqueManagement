@@ -1,15 +1,15 @@
 package com.bridgelabz.model;
 
-public class Patients {
+public class Patient {
     private String name;
     private int id;
     private long mobileNumbre;
     private int age;
 
-    public Patients() {
+    public Patient() {
     }
 
-    public Patients(String name, int id, long mobileNumbre, int age) {
+    public Patient(String name, int id, long mobileNumbre, int age) {
         this.name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
         this.id = id;
         this.mobileNumbre = mobileNumbre;
