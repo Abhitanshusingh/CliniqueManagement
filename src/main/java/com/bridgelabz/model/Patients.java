@@ -6,6 +6,9 @@ public class Patients {
     private long mobileNumbre;
     private int age;
 
+    public Patients() {
+    }
+
     public Patients(String name, int id, long mobileNumbre, int age) {
         this.name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
         this.id = id;
