@@ -109,4 +109,18 @@ public class CliniqueManagementServiceImp implements ICliniqueManagementService 
         }
         return false;
     }
+
+    public boolean searchPatientById(int id, String patientfilePath) {
+        try {
+            ArrayList<Patient> readData = fileSystem.readPatientFile(patientfilePath);
+            for (Patient patientData : readData) {
+                if (patientData.getId() == id) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

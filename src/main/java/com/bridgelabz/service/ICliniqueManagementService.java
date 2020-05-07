@@ -43,4 +43,10 @@ public interface ICliniqueManagementService {
      * This method is used to search patient
      * by mobile number from json file.
      */
+
+    boolean searchPatientById(int id, String patientfilePath);
+    /**
+     * This method is used to search patient
+     * by id from json file.
+     */
 }
