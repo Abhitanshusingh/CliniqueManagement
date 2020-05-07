@@ -26,7 +26,7 @@ public class CliniqueManagementServiceImp implements ICliniqueManagementService 
         try {
             ArrayList<Doctor> readData = fileSystem.readDoctorFile(filePath);
             for (Doctor doctorsData : readData) {
-                if (doctorsData.getName().contains(doctorName))
+                if (doctorsData.getName().equals(doctorName))
                     return true;
             }
         } catch (IOException e) {
@@ -41,6 +41,21 @@ public class CliniqueManagementServiceImp implements ICliniqueManagementService 
             ArrayList<Doctor> readData = fileSystem.readDoctorFile(doctorfilePath);
             for (Doctor doctorsData : readData) {
                 if (doctorsData.getId() == doctorId) {
+                    return true;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean searchDoctorBySpecialization(String doctorSpecialist, String doctorfilePath) {
+        try {
+            ArrayList<Doctor> readData = fileSystem.readDoctorFile(doctorfilePath);
+            for (Doctor doctorsData : readData) {
+                if (doctorsData.getSpecialization().equals(doctorSpecialist)) {
                     return true;
                 }
             }
