@@ -15,4 +15,11 @@ public interface ICliniqueManagementService {
      * This method is used to search doctor
      * by name from json file.
      */
+
+    public boolean searchDoctorById(int doctorId, String doctorfilePath);
+
+    /**
+     * This method is used to search doctor
+     * by id from json file.
+     */
 }
